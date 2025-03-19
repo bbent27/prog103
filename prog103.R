@@ -129,21 +129,23 @@ season <- rep(0, length(unique_season))
 for (i in 1 : length(unique_season)) {
   heat_exposure <- extreme_temp("Aialik", unique_season[i], "hot")
   cold_exposure <- extreme_temp("Aialik", unique_season[i], "cold")
-  print(paste("Aialik", unique_season, heat_exposure, cold_exposure))
+  print(paste("Aialik", unique_season[i], heat_exposure, cold_exposure))
 }
-
 
 # P9 Copy-paste your answer to P8 and add a nested for loop to iterate across
 # sites as well as seasons.
 unique_season <- unique(kefj_season)
 unique_site <- unique(kefj_site)
 season <- rep(0, length(unique_season))
-for (i in 1 : length(unique_season))
-  for(i in 1 : length(unique_site)) {
-    heat_exposure <- extreme_temp(unique_site[i], unique_season[i], "hot")
-    cold_exposure <- extreme_temp(unique_site[i], unique_season[i], "cold")
-    print(paste(unique_site[i], unique_season[i], heat_exposure, cold_exposure))
+for (i in 1 : length(unique_season)) {
+  for(j in 1 : length(unique_site)) {
+    heat_exposure <- extreme_temp(unique_site[j], unique_season[i], "hot")
+    cold_exposure <- extreme_temp(unique_site[j], unique_season[i], "cold")
+    print(paste(unique_site[j], unique_season[i], heat_exposure, cold_exposure))
   }
+}
+
+
 # P10 Examine your results from P9. You should find two outputs where both
 # extreme heat and cold exposure were 0. What season were they in?
 # fall (in Harris)
